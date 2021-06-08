@@ -1,9 +1,15 @@
 package com.LinkedList;
 
-public interface INode<K> {
-    K getKey();
-    void setKey(K key);
+public interface INode<T> {
 
-    INode getNext();
-    void setNext(INode next);
+	public T getKey();
+	
+	public void setKey(T key);
+	
+	public INode getNext();
+	
+	public void setNext(INode next);
+	
+	
+	
 }
