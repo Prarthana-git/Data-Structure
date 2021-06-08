@@ -9,49 +9,36 @@ public class MyLinkedList<T> {
 		this.tail=null;
 	}
 	//Add First
-	public void addFirst(INode newNode)
+	public void add(INode newNode)
 	{
 		if(this.tail==null)
 		{
 			this.tail=newNode;
 		}
-		if(head==null)
-		{
-			head=newNode;
-		}else {
-			INode tempNode=this.head;
-			this.head=newNode;
-			this.head.setNext(tempNode);;
-		}
-	}
-  //Add Last
-	public void addLast(INode newNode) {
 		if(this.head==null)
 		{
 			this.head=newNode;
-		}
-		if(tail==null)
-		{
-			tail=newNode;
 		}else {
-			this.tail.setNext(newNode);
-			tail=newNode;
+			INode tempNode=this.head;
+			this.head=newNode;
+			this.head.setNext(tempNode);
 		}
 	}
+  
 	
 	public void printMyNodes()
 	{
-		INode tempNode=this.head;
+		INode tempNode=head;
 		StringBuffer displayNode=new StringBuffer("My Nodes:");
 		while(tempNode.getNext()!=null)
 		{
-			displayNode.append(tempNode.getData());
-			if(!tempNode.equals(this.tail))
-			{
+			    displayNode.append(tempNode.getKey());
+			    if(!tempNode.equals(tail))
 				displayNode.append("->");
+				tempNode=tempNode.getNext();
 			}
-			displayNode.append(tempNode.getData());
+			displayNode.append(tempNode.getKey());
 			System.out.println(displayNode);
 		}
 	}
-}
+
