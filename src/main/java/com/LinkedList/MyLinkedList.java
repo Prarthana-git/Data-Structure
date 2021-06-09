@@ -2,8 +2,8 @@ package com.LinkedList;
 
 public class MyLinkedList<T> {
 	
-	private INode head;
-	private INode tail;
+	 INode head;
+	INode tail;
 	
 	public MyLinkedList( ) {
 		this.head = null;
@@ -63,6 +63,17 @@ public class MyLinkedList<T> {
         this.tail = tempNode;
         tempNode.setNext(null);
     }
+
+    public INode<T> search(T key) {
+        INode<T> tempNode = head;
+        while (tempNode != null && tempNode.getNext() != null) {
+            if (tempNode.getKey().equals(key)) {
+                return tempNode;
+            }
+            tempNode = tempNode.getNext();
+        }
+        return null;
+    }
     public boolean search(INode key) {
         INode tempNode = head;
         while(tempNode !=null && tempNode.getNext()!=null) {
@@ -72,6 +83,24 @@ public class MyLinkedList<T> {
             tempNode = tempNode.getNext();
         }
         return false;
+    }
+    public void deleteNode(INode myNode) {
+        INode tempNode = head;
+        INode previousNode = null;
+        while (tempNode != null && tempNode.getKey() != myNode.getKey()) {
+            previousNode = tempNode;
+            tempNode = tempNode.getNext();
+        }
+        previousNode.setNext(tempNode.getNext());
+    }
+
+    public void printMyNode() {
+        System.out.println("My nodes:" + head);
+    }
+
+    @Override
+    public String toString() {
+        return "MyLinkedListNodes{" + head + "}";
     }
 }
 
