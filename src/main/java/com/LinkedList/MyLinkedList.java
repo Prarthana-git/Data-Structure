@@ -10,7 +10,7 @@ public class MyLinkedList<T> {
 		this.tail = null;
 	}
 	
-
+//Add First
     public void add(INode newNode) {
         if (this.tail == null)
             this.tail = newNode;
